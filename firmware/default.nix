@@ -20,7 +20,7 @@ stdenv.mkDerivation rec {
   #  * http://opensource.rock-chips.com/wiki_Boot_option#Boot_from_SD.2FTF_Card
   installPhase = ''
     (
-    PS4="$ "
+    PS4=" $ "
     set -x
 
     ${u-boot}/mkimage -n rk3399 -T rksd -d ${flashData} idbloader.img
