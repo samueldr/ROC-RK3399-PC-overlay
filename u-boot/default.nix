@@ -33,6 +33,7 @@ buildUBoot rec {
   filesToInstall = [
     "u-boot.bin"
     ".config"
+    "tools/mkimage"
   ]
   ++ lib.optional (BL31 != null) ["u-boot.itb"]
   ;
