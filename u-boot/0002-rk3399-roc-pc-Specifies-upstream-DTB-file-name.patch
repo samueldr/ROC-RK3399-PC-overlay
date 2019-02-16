@@ -1,0 +1,24 @@
+From 1c18d45d3eae276cd6e9514fb408c6b7d9a49d9a Mon Sep 17 00:00:00 2001
+From: Samuel Dionne-Riel <samuel@dionne-riel.com>
+Date: Sat, 16 Feb 2019 14:06:53 -0500
+Subject: [PATCH 2/2] rk3399-roc-pc: Specifies upstream DTB file name
+
+---
+ include/configs/rk3399-roc-pc.h | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/include/configs/rk3399-roc-pc.h b/include/configs/rk3399-roc-pc.h
+index 10eac58917..8f2a5b8079 100644
+--- a/include/configs/rk3399-roc-pc.h
++++ b/include/configs/rk3399-roc-pc.h
+@@ -30,6 +30,7 @@
+ 
+ #define ROCKCHIP_DEVICE_SETTINGS \
+ 		"stdin=serial,usbkbd\0" \
++		"fdtfile=" CONFIG_SYS_VENDOR "/" CONFIG_SYS_BOARD ".dtb\0" \
+ 		"stdout=serial,vidconsole\0" \
+ 		"stderr=serial,vidconsole\0"
+ 
+-- 
+2.18.1
+

@@ -20,6 +20,8 @@ buildUBoot rec {
       url = "https://github.com/FireflyTeam/u-boot/pull/1.patch";
       sha256 = "1y6xhq3jvlga1a82sr1xm5i1ni7kwwx1nq0aclv5s0ms1nl38lhk";
     })
+    ./0001-rk3399-roc-pc-Inits-target.patch
+    ./0002-rk3399-roc-pc-Specifies-upstream-DTB-file-name.patch
   ];
 
   defconfig = "roc-rk3399-pc_defconfig";
