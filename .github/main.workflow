@@ -1,9 +1,9 @@
 workflow "Build on push" {
   on = "push"
-  resolves = ["samueldr/action-nix-build@master"]
+  resolves = ["Build"]
 }
 
-action "samueldr/action-nix-build@master" {
+action "Build" {
   uses = "samueldr/action-nix-build@master"
   env = {
     NIXPKGS_ALLOW_UNFREE = "1"
@@ -13,21 +13,21 @@ action "samueldr/action-nix-build@master" {
 workflow "Upload on release" {
   on = "release"
   resolves = [
-    "JasonEtco/upload-to-release@v0.1.1",
-    "samueldr/action-nix-build@master-1",
+    "Build for release",
+    "Upload release",
   ]
 }
 
-action "samueldr/action-nix-build@master-1" {
+action "Build for release" {
   uses = "samueldr/action-nix-build@master"
   env = {
     NIXPKGS_ALLOW_UNFREE = "1"
   }
 }
 
-action "JasonEtco/upload-to-release@v0.1.1" {
+action "Upload release" {
   uses = "JasonEtco/upload-to-release@v0.1.1"
-  needs = ["samueldr/action-nix-build@master-1"]
-  args = "result/ROC-RK3399-PC-firmware-combined.img.xz"
+  args = "result/ROC-RK3399-PC-firmware-combined.img.xz application/x-xz; charset=binary"
   secrets = ["GITHUB_TOKEN"]
+  needs = ["Build for release"]
 }
