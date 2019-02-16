@@ -7,5 +7,6 @@ in
   ROC-RK3399-PC = {
     rkbin = callPackage ./rkbin {};
     u-boot = callPackage ./u-boot {};
+    firmware = callPackage ./firmware {};
   };
 }
