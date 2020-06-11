@@ -26,6 +26,8 @@ buildUBoot rec {
 
   defconfig = "roc-rk3399-pc_defconfig";
 
+  NIX_CFLAGS_COMPILE = "-Wno-address-of-packed-member"; # Fails on gcc9
+
   extraMakeFlags = [
     "all"
   ]
